@@ -1,0 +1,15 @@
+<template>
+    <div onclick={handleClick} class="tile">
+        <div class="content">
+            <img src={car.Picture_URL__c} alt="Car Image" class=" carImage" />
+            <div>
+                <p class="title ">{car.Name}</p>
+                <p>
+                    MSRP:
+                    <lightning-formatted-number format-style="currency" currency-code="USD" value={car.MSRP__c}
+                        maximum-fraction-digits="0"></lightning-formatted-number>
+                </p>
+            </div>
+        </div>
+    </div>
+</template>

@@ -1,0 +1,7 @@
+<design:component label="Three templates layout">
+    <flexipage:template>
+        <flexipage:region name="left" label="Left Column" defaultWidth="SMALL"></flexipage:region>
+        <flexipage:region name="center" label="Center Column" defaultWidth="LARGE"></flexipage:region>
+        <flexipage:region name="right" label="Right Column" defaultWidth="SMALL"></flexipage:region>
+    </flexipage:template>
+</design:component>

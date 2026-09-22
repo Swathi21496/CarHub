@@ -1,0 +1,44 @@
+<template>
+    <lightning-card title="filters" icon-name="standard:calibration">
+        <div class="slds-m-horizontal_medium">
+            <lightning-input type="search" name="search" label="Search" value={filters.searchKey}
+                onchange={handleSearchKeyChange}></lightning-input>
+            <section class="slider_section">
+                <lightning-slider name="price" label="Max Price" min="0" max="999999" step="100"
+                    value={filters.maxPrice} onchange={handleMaxPriceChange}>
+                </lightning-slider>
+            </section>
+            <section>
+                <h2>Category</h2>
+                <template if:true={categoryPicklistValues.data}>
+                    <template for:each={categoryPicklistValues.data.values} for:item="category">
+                        <lightning-input data-name="categories" data-value={category.value} key={category.value} label={category.label} type="checkbox" checked
+                            onchange={handleCheckbox}>
+                        </lightning-input>
+                    </template>
+                </template>
+                <template if:true={categoryPicklistValues.error}>
+                    <div class="slds-text-color_error">
+                        {categoryErrorMessage}
+                    </div>
+                </template>
+            </section>
+            <section>
+                <h2>Make</h2>
+                <template if:true={makePicklistValues.data}>
+                    <template for:each={makePicklistValues.data.values} for:item="make">
+                        <lightning-input data-name="makeType" data-value={make.value} key={make.value} label={make.label} type="checkbox" checked
+                            onchange={handleCheckbox}>
+                        </lightning-input>
+                    </template>
+                </template>
+                <template if:true={makePicklistValues.error}>
+                    <div class="slds-text-color_error">
+                        {makeErrorMessage}
+                    </div>
+                </template>
+            </section>
+        </div>
+    </lightning-card>
+
+</template>
