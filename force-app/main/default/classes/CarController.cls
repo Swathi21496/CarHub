@@ -43,4 +43,9 @@ public with sharing class CarController {
         return Database.query(query);
     }
 
+    @AuraEnabled
+    public static List<Car__c> getSimilarCars(String carId,String[] makeType){
+        return [SELECT Id, Name, Picture_URL__c, Category__c, Make__c, MSRP__c, Fuel_Type__c, Number_of_Seats__c, Control__c FROM Car__c WHERE Id != :carId AND Make__c IN :makeType ORDER BY Name ASC];      
+    }
+
 }
